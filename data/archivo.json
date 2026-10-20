@@ -1,0 +1,1109 @@
+[
+ {
+  "id": "rasasi-hawas-highness",
+  "cat": "arabe",
+  "nombre": "Hawas Highness",
+  "marca": "Rasasi",
+  "desc": "Cítrico, especiado y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 3990
+   },
+   {
+    "ml": 5,
+    "precio": 5490
+   },
+   {
+    "ml": 10,
+    "precio": 8490
+   },
+   {
+    "ml": 15,
+    "precio": 11490
+   },
+   {
+    "ml": 30,
+    "precio": 19990
+   }
+  ]
+ },
+ {
+  "id": "rasasi-hawas-overdose",
+  "cat": "arabe",
+  "nombre": "Hawas Overdose",
+  "marca": "Rasasi",
+  "desc": "Dulce, cálido y envolvente.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 3990
+   },
+   {
+    "ml": 5,
+    "precio": 5490
+   },
+   {
+    "ml": 10,
+    "precio": 8490
+   },
+   {
+    "ml": 15,
+    "precio": 11490
+   },
+   {
+    "ml": 30,
+    "precio": 19990
+   }
+  ]
+ },
+ {
+  "id": "rasasi-hawas-tropical",
+  "cat": "arabe",
+  "nombre": "Hawas Tropical",
+  "marca": "Rasasi",
+  "desc": "Tropical, cremoso y verde.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 3490
+   },
+   {
+    "ml": 5,
+    "precio": 4990
+   },
+   {
+    "ml": 10,
+    "precio": 7990
+   },
+   {
+    "ml": 15,
+    "precio": 10990
+   },
+   {
+    "ml": 30,
+    "precio": 18990
+   }
+  ]
+ },
+ {
+  "id": "rasasi-hawas-kobra",
+  "cat": "arabe",
+  "nombre": "Hawas Kobra",
+  "marca": "Rasasi",
+  "desc": "Cítrico, especiado y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 3490
+   },
+   {
+    "ml": 5,
+    "precio": 4990
+   },
+   {
+    "ml": 10,
+    "precio": 7990
+   },
+   {
+    "ml": 15,
+    "precio": 10990
+   },
+   {
+    "ml": 30,
+    "precio": 18990
+   }
+  ]
+ },
+ {
+  "id": "jo-milano-game-of-spades-emerald",
+  "cat": "arabe",
+  "nombre": "Game of Spades Emerald",
+  "marca": "Jo Milano",
+  "desc": "Fresco, cítrico y chispeante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 4990
+   },
+   {
+    "ml": 5,
+    "precio": 7490
+   },
+   {
+    "ml": 10,
+    "precio": 11990
+   },
+   {
+    "ml": 15,
+    "precio": 16990
+   },
+   {
+    "ml": 30,
+    "precio": 27990
+   }
+  ]
+ },
+ {
+  "id": "jo-milano-game-of-spades-full-house",
+  "cat": "arabe",
+  "nombre": "Game of Spades Full House",
+  "marca": "Jo Milano",
+  "desc": "Cítrico, aromático y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 3990
+   },
+   {
+    "ml": 5,
+    "precio": 5990
+   },
+   {
+    "ml": 10,
+    "precio": 9990
+   },
+   {
+    "ml": 15,
+    "precio": 13990
+   },
+   {
+    "ml": 30,
+    "precio": 21990
+   }
+  ]
+ },
+ {
+  "id": "dumont-nitro-red-intensely",
+  "cat": "arabe",
+  "nombre": "Nitro Red Intensely",
+  "marca": "Dumont",
+  "desc": "Frutal, intenso y ambarado.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 3490
+   },
+   {
+    "ml": 5,
+    "precio": 4990
+   },
+   {
+    "ml": 10,
+    "precio": 7990
+   },
+   {
+    "ml": 15,
+    "precio": 10990
+   },
+   {
+    "ml": 30,
+    "precio": 17990
+   }
+  ]
+ },
+ {
+  "id": "dumont-nitro-white-intensely",
+  "cat": "arabe",
+  "nombre": "Nitro White Intensely",
+  "marca": "Dumont",
+  "desc": "Frutal, especiado y envolvente.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 3490
+   },
+   {
+    "ml": 5,
+    "precio": 4990
+   },
+   {
+    "ml": 10,
+    "precio": 7990
+   },
+   {
+    "ml": 15,
+    "precio": 10990
+   },
+   {
+    "ml": 30,
+    "precio": 17990
+   }
+  ]
+ },
+ {
+  "id": "dumont-nitro-gold",
+  "cat": "arabe",
+  "nombre": "Nitro Gold",
+  "marca": "Dumont",
+  "desc": "Frutal, amaderado y luminoso.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 3990
+   },
+   {
+    "ml": 5,
+    "precio": 5490
+   },
+   {
+    "ml": 10,
+    "precio": 8990
+   },
+   {
+    "ml": 15,
+    "precio": 11990
+   },
+   {
+    "ml": 30,
+    "precio": 19990
+   }
+  ]
+ },
+ {
+  "id": "lattafa-yara-moi",
+  "cat": "arabe",
+  "nombre": "Yara Moi",
+  "marca": "Lattafa",
+  "desc": "Floral, cremoso y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 2490
+   },
+   {
+    "ml": 5,
+    "precio": 3490
+   },
+   {
+    "ml": 10,
+    "precio": 5490
+   },
+   {
+    "ml": 15,
+    "precio": 6990
+   },
+   {
+    "ml": 30,
+    "precio": 10990
+   }
+  ]
+ },
+ {
+  "id": "lattafa-yara-elixir",
+  "cat": "arabe",
+  "nombre": "Yara Elixir",
+  "marca": "Lattafa",
+  "desc": "Frutal, cremoso y envolvente.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 2490
+   },
+   {
+    "ml": 5,
+    "precio": 3490
+   },
+   {
+    "ml": 10,
+    "precio": 5490
+   },
+   {
+    "ml": 15,
+    "precio": 6990
+   },
+   {
+    "ml": 30,
+    "precio": 10990
+   }
+  ]
+ },
+ {
+  "id": "lattafa-asad-elixir",
+  "cat": "arabe",
+  "nombre": "Asad Elixir",
+  "marca": "Lattafa",
+  "desc": "Intenso, especiado y amaderado.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 2490
+   },
+   {
+    "ml": 5,
+    "precio": 3490
+   },
+   {
+    "ml": 10,
+    "precio": 5490
+   },
+   {
+    "ml": 15,
+    "precio": 6990
+   },
+   {
+    "ml": 30,
+    "precio": 10990
+   }
+  ]
+ },
+ {
+  "id": "lattafa-opulent-dubai",
+  "cat": "arabe",
+  "nombre": "Opulent Dubai",
+  "marca": "Lattafa",
+  "desc": "Frutal, cítrico y luminoso.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 2490
+   },
+   {
+    "ml": 5,
+    "precio": 3490
+   },
+   {
+    "ml": 10,
+    "precio": 5490
+   },
+   {
+    "ml": 15,
+    "precio": 6990
+   },
+   {
+    "ml": 30,
+    "precio": 10990
+   }
+  ]
+ },
+ {
+  "id": "lattafa-jasoor",
+  "cat": "arabe",
+  "nombre": "Jasoor",
+  "marca": "Lattafa",
+  "desc": "Frutal, especiado y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 2490
+   },
+   {
+    "ml": 5,
+    "precio": 3490
+   },
+   {
+    "ml": 10,
+    "precio": 5490
+   },
+   {
+    "ml": 15,
+    "precio": 6990
+   },
+   {
+    "ml": 30,
+    "precio": 10990
+   }
+  ]
+ },
+ {
+  "id": "rayhaan-tropical-vibe",
+  "cat": "arabe",
+  "nombre": "Tropical Vibe",
+  "marca": "Rayhaan",
+  "desc": "Frutal, tropical y luminoso.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 2490
+   },
+   {
+    "ml": 5,
+    "precio": 3490
+   },
+   {
+    "ml": 10,
+    "precio": 5990
+   },
+   {
+    "ml": 15,
+    "precio": 7990
+   },
+   {
+    "ml": 30,
+    "precio": 12990
+   }
+  ]
+ },
+ {
+  "id": "rayhaan-azul",
+  "cat": "arabe",
+  "nombre": "Azul",
+  "marca": "Rayhaan",
+  "desc": "Fresco, cítrico y acuático.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 2490
+   },
+   {
+    "ml": 5,
+    "precio": 3490
+   },
+   {
+    "ml": 10,
+    "precio": 5990
+   },
+   {
+    "ml": 15,
+    "precio": 7990
+   },
+   {
+    "ml": 30,
+    "precio": 12990
+   }
+  ]
+ },
+ {
+  "id": "dior-sauvage-edt",
+  "cat": "disenador",
+  "nombre": "Sauvage EDT",
+  "marca": "Dior",
+  "desc": "Fresco, vibrante y versátil.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 6990
+   },
+   {
+    "ml": 5,
+    "precio": 9990
+   },
+   {
+    "ml": 10,
+    "precio": 16990
+   },
+   {
+    "ml": 15,
+    "precio": 22990
+   },
+   {
+    "ml": 30,
+    "precio": 39990
+   }
+  ]
+ },
+ {
+  "id": "dior-dior-homme-parfum",
+  "cat": "disenador",
+  "nombre": "Dior Homme Parfum",
+  "marca": "Dior",
+  "desc": "Ambarado, floral y sofisticado.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 12990
+   },
+   {
+    "ml": 5,
+    "precio": 19990
+   }
+  ]
+ },
+ {
+  "id": "dior-dior-homme-sport",
+  "cat": "disenador",
+  "nombre": "Dior Homme Sport",
+  "marca": "Dior",
+  "desc": "Cítrico, amaderado y vibrante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 7990
+   },
+   {
+    "ml": 5,
+    "precio": 11990
+   },
+   {
+    "ml": 10,
+    "precio": 19990
+   }
+  ]
+ },
+ {
+  "id": "giorgio-armani-acqua-di-gioia-edp",
+  "cat": "disenador",
+  "nombre": "Acqua di Gioia EDP",
+  "marca": "Giorgio Armani",
+  "desc": "Floral, cítrico y refrescante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 7990
+   },
+   {
+    "ml": 5,
+    "precio": 11990
+   },
+   {
+    "ml": 10,
+    "precio": 19990
+   },
+   {
+    "ml": 15,
+    "precio": 26990
+   }
+  ]
+ },
+ {
+  "id": "giorgio-armani-acqua-di-gio-edp",
+  "cat": "disenador",
+  "nombre": "Acqua di Giò EDP",
+  "marca": "Giorgio Armani",
+  "desc": "Marino, fresco y aromático.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 5990
+   },
+   {
+    "ml": 5,
+    "precio": 8990
+   },
+   {
+    "ml": 10,
+    "precio": 15990
+   },
+   {
+    "ml": 15,
+    "precio": 21990
+   }
+  ]
+ },
+ {
+  "id": "giorgio-armani-acqua-di-gio-parfum",
+  "cat": "disenador",
+  "nombre": "Acqua di Giò Parfum",
+  "marca": "Giorgio Armani",
+  "desc": "Marino, amaderado y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 7990
+   },
+   {
+    "ml": 5,
+    "precio": 11990
+   },
+   {
+    "ml": 10,
+    "precio": 19990
+   },
+   {
+    "ml": 15,
+    "precio": 27990
+   }
+  ]
+ },
+ {
+  "id": "emporio-armani-power-of-you-edp",
+  "cat": "disenador",
+  "nombre": "Power of You EDP",
+  "marca": "Emporio Armani",
+  "desc": "Frutal, cremoso y radiante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 9990
+   },
+   {
+    "ml": 5,
+    "precio": 14990
+   },
+   {
+    "ml": 10,
+    "precio": 25990
+   }
+  ]
+ },
+ {
+  "id": "dolce-gabbana-light-blue-capri-in-love-pour-homme-edp",
+  "cat": "disenador",
+  "nombre": "Light Blue Capri in Love Pour Homme EDP",
+  "marca": "Dolce & Gabbana",
+  "desc": "Verde, especiado y mediterráneo.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 5990
+   },
+   {
+    "ml": 5,
+    "precio": 8990
+   },
+   {
+    "ml": 10,
+    "precio": 14990
+   },
+   {
+    "ml": 15,
+    "precio": 19990
+   }
+  ]
+ },
+ {
+  "id": "adolfo-dominguez-agua-fresca-edt",
+  "cat": "disenador",
+  "nombre": "Agua Fresca EDT",
+  "marca": "Adolfo Domínguez",
+  "desc": "Verde, fresco y aromático.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 1990
+   },
+   {
+    "ml": 5,
+    "precio": 2490
+   },
+   {
+    "ml": 10,
+    "precio": 3490
+   },
+   {
+    "ml": 15,
+    "precio": 4490
+   },
+   {
+    "ml": 30,
+    "precio": 6990
+   },
+   {
+    "ml": 50,
+    "precio": 9990
+   }
+  ]
+ },
+ {
+  "id": "ralph-lauren-ralph-s-club-elixir",
+  "cat": "disenador",
+  "nombre": "Ralph's Club Elixir",
+  "marca": "Ralph Lauren",
+  "desc": "Amaderado, intenso y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 5990
+   },
+   {
+    "ml": 5,
+    "precio": 8990
+   },
+   {
+    "ml": 10,
+    "precio": 15990
+   },
+   {
+    "ml": 15,
+    "precio": 21990
+   }
+  ]
+ },
+ {
+  "id": "jean-paul-gaultier-divine-edp",
+  "cat": "disenador",
+  "nombre": "Divine EDP",
+  "marca": "Jean Paul Gaultier",
+  "desc": "Floral, cremoso y luminoso.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 8990
+   },
+   {
+    "ml": 5,
+    "precio": 13990
+   },
+   {
+    "ml": 10,
+    "precio": 21990
+   },
+   {
+    "ml": 15,
+    "precio": 29990
+   }
+  ]
+ },
+ {
+  "id": "jean-paul-gaultier-le-male-elixir-absolu",
+  "cat": "disenador",
+  "nombre": "Le Male Elixir Absolu",
+  "marca": "Jean Paul Gaultier",
+  "desc": "Frutal, intenso y envolvente.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 7990
+   },
+   {
+    "ml": 5,
+    "precio": 12990
+   },
+   {
+    "ml": 10,
+    "precio": 21990
+   },
+   {
+    "ml": 15,
+    "precio": 29990
+   }
+  ]
+ },
+ {
+  "id": "prada-luna-rossa-ocean-edt",
+  "cat": "disenador",
+  "nombre": "Luna Rossa Ocean EDT",
+  "marca": "Prada",
+  "desc": "Fresco, aromático y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 6990
+   },
+   {
+    "ml": 5,
+    "precio": 10990
+   },
+   {
+    "ml": 10,
+    "precio": 17990
+   },
+   {
+    "ml": 15,
+    "precio": 24990
+   },
+   {
+    "ml": 30,
+    "precio": 39990
+   }
+  ]
+ },
+ {
+  "id": "valentino-uomo-born-in-roma-edt",
+  "cat": "disenador",
+  "nombre": "Uomo Born in Roma EDT",
+  "marca": "Valentino",
+  "desc": "Fresco, mineral y amaderado.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 6990
+   },
+   {
+    "ml": 5,
+    "precio": 10990
+   },
+   {
+    "ml": 10,
+    "precio": 18990
+   },
+   {
+    "ml": 15,
+    "precio": 25990
+   }
+  ]
+ },
+ {
+  "id": "valentino-donna-born-in-roma-intense",
+  "cat": "disenador",
+  "nombre": "Donna Born in Roma Intense",
+  "marca": "Valentino",
+  "desc": "Floral, ambarado y envolvente.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 8990
+   },
+   {
+    "ml": 5,
+    "precio": 13990
+   },
+   {
+    "ml": 10,
+    "precio": 23990
+   },
+   {
+    "ml": 15,
+    "precio": 32990
+   }
+  ]
+ },
+ {
+  "id": "valentino-donna-born-in-roma-green-stravaganza",
+  "cat": "disenador",
+  "nombre": "Donna Born in Roma Green Stravaganza",
+  "marca": "Valentino",
+  "desc": "Floral, aromático y avainillado.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 6990
+   },
+   {
+    "ml": 5,
+    "precio": 10990
+   },
+   {
+    "ml": 10,
+    "precio": 18990
+   },
+   {
+    "ml": 15,
+    "precio": 25990
+   }
+  ]
+ },
+ {
+  "id": "valentino-voce-viva-edp",
+  "cat": "disenador",
+  "nombre": "Voce Viva EDP",
+  "marca": "Valentino",
+  "desc": "Floral, luminoso y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 6990
+   },
+   {
+    "ml": 5,
+    "precio": 9990
+   },
+   {
+    "ml": 10,
+    "precio": 16990
+   },
+   {
+    "ml": 15,
+    "precio": 22990
+   }
+  ]
+ },
+ {
+  "id": "xerjoff-erba-gold",
+  "cat": "nicho",
+  "nombre": "Erba Gold",
+  "marca": "Xerjoff",
+  "desc": "Frutal, dulce y luminoso.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 10990
+   },
+   {
+    "ml": 5,
+    "precio": 16990
+   },
+   {
+    "ml": 10,
+    "precio": 29990
+   },
+   {
+    "ml": 15,
+    "precio": 39990
+   }
+  ]
+ },
+ {
+  "id": "creed-millesime-imperial",
+  "cat": "nicho",
+  "nombre": "Millésime Impérial",
+  "marca": "Creed",
+  "desc": "Cítrico, marino y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 13990
+   },
+   {
+    "ml": 5,
+    "precio": 21990
+   },
+   {
+    "ml": 10,
+    "precio": 36990
+   }
+  ]
+ },
+ {
+  "id": "creed-absolu-aventus",
+  "cat": "nicho",
+  "nombre": "Absolu Aventus",
+  "marca": "Creed",
+  "desc": "Intenso, especiado y elegante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 21990
+   },
+   {
+    "ml": 5,
+    "precio": 34990
+   },
+   {
+    "ml": 10,
+    "precio": 59990
+   }
+  ]
+ },
+ {
+  "id": "parfums-de-marly-valaya-exclusif",
+  "cat": "nicho",
+  "nombre": "Valaya Exclusif",
+  "marca": "Parfums de Marly",
+  "desc": "Floral, suave y envolvente.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 23990
+   },
+   {
+    "ml": 5,
+    "precio": 34990
+   },
+   {
+    "ml": 10,
+    "precio": 54990
+   }
+  ]
+ },
+ {
+  "id": "xerjoff-torino24",
+  "cat": "nicho",
+  "nombre": "Torino24",
+  "marca": "Xerjoff",
+  "desc": "Frutal, gourmand y vibrante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 16990
+   },
+   {
+    "ml": 5,
+    "precio": 24990
+   }
+  ]
+ },
+ {
+  "id": "jovoy-paris-incident-diplomatique",
+  "cat": "nicho",
+  "nombre": "Incident Diplomatique",
+  "marca": "Jovoy Paris",
+  "desc": "Amaderado, terroso y con carácter.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 12990
+   },
+   {
+    "ml": 5,
+    "precio": 18990
+   },
+   {
+    "ml": 10,
+    "precio": 29990
+   }
+  ]
+ },
+ {
+  "id": "stephane-humbert-lucas-god-of-fire",
+  "cat": "nicho",
+  "nombre": "God of Fire",
+  "marca": "Stéphane Humbert Lucas",
+  "desc": "Frutal, exótico y vibrante.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 20990
+   },
+   {
+    "ml": 5,
+    "precio": 31990
+   }
+  ]
+ },
+ {
+  "id": "gisada-ambassador-intense",
+  "cat": "nicho",
+  "nombre": "Ambassador Intense",
+  "marca": "Gisada",
+  "desc": "Especiado, cálido y profundo.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 8990
+   },
+   {
+    "ml": 5,
+    "precio": 11990
+   },
+   {
+    "ml": 10,
+    "precio": 19990
+   },
+   {
+    "ml": 15,
+    "precio": 27990
+   }
+  ]
+ },
+ {
+  "id": "gisada-ambassadora",
+  "cat": "nicho",
+  "nombre": "Ambassadora",
+  "marca": "Gisada",
+  "desc": "Floral, frutal y envolvente.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 8990
+   },
+   {
+    "ml": 5,
+    "precio": 11990
+   },
+   {
+    "ml": 10,
+    "precio": 19990
+   },
+   {
+    "ml": 15,
+    "precio": 27990
+   }
+  ]
+ },
+ {
+  "id": "gisada-titanium",
+  "cat": "nicho",
+  "nombre": "Titanium",
+  "marca": "Gisada",
+  "desc": "Aromático, especiado y moderno.",
+  "precios": [
+   {
+    "ml": 3,
+    "precio": 8990
+   },
+   {
+    "ml": 5,
+    "precio": 11990
+   },
+   {
+    "ml": 10,
+    "precio": 19990
+   },
+   {
+    "ml": 15,
+    "precio": 27990
+   }
+  ]
+ }
+]

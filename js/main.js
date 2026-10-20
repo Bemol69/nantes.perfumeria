@@ -1,12 +1,13 @@
-// Nantes Perfumería: catálogo, pedido y envío por WhatsApp
+// Nantes Perfumería: catálogo, selector de ml, carrito y pedido por WhatsApp
 
 // Número de WhatsApp de la tienda: código de país + número, sin "+" ni espacios (ej: 56912345678).
-// Mientras esté vacío, los pedidos se copian y se abre el Instagram de la tienda.
+// Mientras esté vacío, el pedido se copia y se abre el chat de Instagram.
 const WHATSAPP_NUMBER = '';
 const INSTAGRAM_URL = 'https://ig.me/m/nantes.perfumeria';
 
 const CATS = { arabe: 'Árabe', disenador: 'Diseñador', nicho: 'Nicho' };
-const BAG_KEY = 'nantes-pedido';
+const SPRAYS = { 1: '15–20', 3: '40–45', 5: '65–75', 10: '135–150', 15: '200–225', 30: '400–450' };
+const CART_KEY = 'nantes-carrito';
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const clp = (n) => '$' + n.toLocaleString('es-CL');
@@ -14,56 +15,55 @@ const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 let PRODUCTS = [];
-const state = { cat: 'todos', q: '', brand: '', sort: '' };
-const chosen = {}; // tamaño elegido por producto
+const state = { cat: 'todos', q: '', sort: '' };
 
-// ===== Pedido (se guarda en el navegador) =====
-let BAG = [];
-try { BAG = JSON.parse(localStorage.getItem(BAG_KEY) || '[]'); } catch { BAG = []; }
-const saveBag = () => { try { localStorage.setItem(BAG_KEY, JSON.stringify(BAG)); } catch {} };
+// ===== Carrito (se guarda en el navegador) =====
+let CART = [];
+try { CART = JSON.parse(localStorage.getItem(CART_KEY) || '[]'); } catch { CART = []; }
+const saveCart = () => { try { localStorage.setItem(CART_KEY, JSON.stringify(CART)); } catch {} };
 
-function addToBag(id, ml) {
-  const item = BAG.find((i) => i.id === id && i.ml === ml);
-  if (item) item.qty += 1;
-  else BAG.push({ id, ml, qty: 1 });
-  saveBag();
-  renderBag();
+function addToCart(id, ml, qty) {
+  const item = CART.find((i) => i.id === id && i.ml === ml);
+  if (item) item.qty += qty;
+  else CART.push({ id, ml, qty });
+  saveCart();
+  renderCart();
 }
 function changeQty(id, ml, delta) {
-  const item = BAG.find((i) => i.id === id && i.ml === ml);
+  const item = CART.find((i) => i.id === id && i.ml === ml);
   if (!item) return;
   item.qty += delta;
-  if (item.qty <= 0) BAG = BAG.filter((i) => i !== item);
-  saveBag();
-  renderBag();
+  if (item.qty <= 0) CART = CART.filter((i) => i !== item);
+  saveCart();
+  renderCart();
 }
-const lines = () => BAG.map((i) => {
+const lines = () => CART.map((i) => {
   const p = PRODUCTS.find((x) => x.id === i.id);
   const size = p && p.precios.find((s) => s.ml === i.ml);
-  return p && size ? { ...i, p, precio: size.precio } : null;
+  return size ? { ...i, p, precio: size.precio } : null;
 }).filter(Boolean);
-const bagTotal = () => lines().reduce((t, l) => t + l.precio * l.qty, 0);
+const cartTotal = () => lines().reduce((t, l) => t + l.precio * l.qty, 0);
 
-function lineHtml(l) {
-  return `<div class="line">
-    <img src="img/productos/${l.p.id}.webp" alt="" width="56" height="56" loading="lazy">
-    <div><h4>${esc(l.p.nombre)}</h4><p>${esc(l.p.marca)} · ${l.ml} ml</p>
-      <div class="qty"><button type="button" data-qty="-1" data-id="${l.p.id}" data-ml="${l.ml}" aria-label="Quitar uno"><svg><use href="#i-minus"/></svg></button><span>${l.qty}</span><button type="button" data-qty="1" data-id="${l.p.id}" data-ml="${l.ml}" aria-label="Agregar uno"><svg><use href="#i-plus"/></svg></button></div>
-    </div>
-    <div class="line-price">${clp(l.precio * l.qty)}</div>
-  </div>`;
-}
+const lineHtml = (l) => `<div class="line">
+  <img src="img/productos/${l.p.id}.webp" alt="" width="60" height="60" loading="lazy">
+  <div><h4>${esc(l.p.nombre)}</h4><p>${esc(l.p.marca)} · ${l.ml} ml · ${clp(l.precio)} c/u</p>
+    <div class="qty"><button type="button" data-qty="-1" data-id="${l.p.id}" data-ml="${l.ml}" aria-label="Quitar uno"><svg><use href="#i-minus"/></svg></button><span>${l.qty}</span><button type="button" data-qty="1" data-id="${l.p.id}" data-ml="${l.ml}" aria-label="Agregar uno"><svg><use href="#i-plus"/></svg></button></div>
+  </div>
+  <div class="line-price">${clp(l.precio * l.qty)}</div>
+</div>`;
 
-function renderBag() {
+function renderCart() {
   const ls = lines();
   const count = ls.reduce((t, l) => t + l.qty, 0);
-  $$('[data-bag-count]').forEach((el) => { el.textContent = count; el.hidden = count === 0 && el.classList.contains('bag-count'); });
+  const total = clp(cartTotal());
+  $$('[data-cart-count]').forEach((el) => { el.textContent = count; });
+  $('[data-fab-total]').textContent = total;
   $('.fab').hidden = count === 0;
-  $('[data-bag-total]').textContent = clp(bagTotal());
-  $('[data-bag-list]').innerHTML = ls.length ? ls.map(lineHtml).join('') : '<p class="drawer-empty">Aún no agregas perfumes.<br>Elige un tamaño en el catálogo y toca “Agregar”.</p>';
+  $('[data-cart-total]').textContent = total;
+  $('[data-cart-list]').innerHTML = ls.length ? ls.map(lineHtml).join('') : '<p class="cart-empty">Tu carrito está vacío.<br>Toca “Seleccionar” en un perfume para agregarlo.</p>';
   $('[data-summary]').innerHTML = ls.length
-    ? `<h3>Tu pedido</h3>${ls.map(lineHtml).join('')}<div class="summary-total"><span>Total estimado</span><b>${clp(bagTotal())}</b></div>`
-    : '<h3>Tu pedido</h3><p class="muted">Todavía no agregas perfumes. <a href="#catalogo">Elige en el catálogo</a> o escribe en comentarios qué estás buscando.</p>';
+    ? `${ls.map(lineHtml).join('')}<div class="sum-total"><span>Total estimado</span><b>${total}</b></div>`
+    : '<p class="muted">Tu carrito está vacío. <a href="#catalogo">Elige tus perfumes</a> o escríbenos en comentarios qué estás buscando.</p>';
 }
 
 document.addEventListener('click', (e) => {
@@ -71,13 +71,13 @@ document.addEventListener('click', (e) => {
   if (q) changeQty(q.dataset.id, +q.dataset.ml, +q.dataset.qty);
 });
 
-// ===== Panel lateral =====
+// ===== Panel del carrito =====
 const drawer = $('[data-drawer]');
-const openBag = () => { drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; };
-const closeBag = () => { drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
-$$('[data-open-bag]').forEach((b) => b.addEventListener('click', openBag));
-$$('[data-close-bag]').forEach((b) => b.addEventListener('click', closeBag));
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeBag(); });
+const openCart = () => { drawer.classList.add('is-open'); drawer.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; };
+const closeCart = () => { drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
+$$('[data-open-cart]').forEach((b) => b.addEventListener('click', openCart));
+$$('[data-close-cart]').forEach((b) => b.addEventListener('click', closeCart));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
 
 let toastTimer;
 function toast(msg) {
@@ -85,35 +85,32 @@ function toast(msg) {
   t.textContent = msg;
   t.classList.add('is-on');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('is-on'), 2200);
+  toastTimer = setTimeout(() => t.classList.remove('is-on'), 2400);
 }
 
 // ===== Catálogo =====
-function card(p, i) {
-  const sel = chosen[p.id] ?? p.precios[0].ml;
-  return `<article class="card" style="animation-delay:${Math.min(i, 12) * 40}ms">
-    <div class="card-media"><img src="img/productos/${p.id}.webp" alt="${esc(p.nombre)} de ${esc(p.marca)}" width="640" height="503" loading="lazy" decoding="async"><span class="card-tag">${CATS[p.cat]}</span></div>
-    <div class="card-body">
-      <span class="card-brand">${esc(p.marca)}</span>
-      <h3>${esc(p.nombre)}</h3>
-      <p class="card-desc">${esc(p.desc)}</p>
-      <div class="sizes" role="radiogroup" aria-label="Tamaño de ${esc(p.nombre)}">
-        ${p.precios.map((s) => `<button type="button" class="size${s.ml === sel ? ' is-active' : ''}" role="radio" aria-checked="${s.ml === sel}" data-size="${s.ml}" data-id="${p.id}"><b>${s.ml} ml</b><span>${clp(s.precio)}</span></button>`).join('')}
-      </div>
-      <button type="button" class="add" data-add="${p.id}"><svg><use href="#i-bag"/></svg> Agregar</button>
+const minPrice = (p) => Math.min(...p.precios.map((s) => s.precio));
+
+const card = (p, i) => `<article class="card" data-open="${p.id}" style="animation-delay:${Math.min(i, 12) * 40}ms">
+  <div class="card-media"><img src="img/productos/${p.id}.webp" alt="${esc(p.nombre)} de ${esc(p.marca)}" width="640" height="503" loading="lazy" decoding="async"><span class="tag">${CATS[p.cat]}</span></div>
+  <div class="card-body">
+    <span class="card-brand">${esc(p.marca)}</span>
+    <h3>${esc(p.nombre)}</h3>
+    <p class="card-desc">${esc(p.desc)}</p>
+    <div class="card-foot">
+      <div class="from"><small>Desde</small><b>${clp(minPrice(p))}</b></div>
+      <button type="button" class="select-btn" aria-label="Seleccionar ${esc(p.nombre)}"><span>Seleccionar</span><svg><use href="#i-plus"/></svg></button>
     </div>
-  </article>`;
-}
+  </div>
+</article>`;
 
 function filtered() {
   const q = norm(state.q.trim());
   let list = PRODUCTS.filter((p) =>
     (state.cat === 'todos' || p.cat === state.cat) &&
-    (!state.brand || p.marca === state.brand) &&
     (!q || norm(`${p.nombre} ${p.marca} ${p.desc} ${CATS[p.cat]}`).includes(q)));
-  const min = (p) => p.precios[0].precio;
-  if (state.sort === 'asc') list = [...list].sort((a, b) => min(a) - min(b));
-  if (state.sort === 'desc') list = [...list].sort((a, b) => min(b) - min(a));
+  if (state.sort === 'asc') list = [...list].sort((a, b) => minPrice(a) - minPrice(b));
+  if (state.sort === 'desc') list = [...list].sort((a, b) => minPrice(b) - minPrice(a));
   if (state.sort === 'az') list = [...list].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
   return list;
 }
@@ -122,44 +119,73 @@ function renderGrid() {
   const list = filtered();
   $('[data-grid]').innerHTML = list.map(card).join('');
   $('[data-empty]').hidden = list.length > 0;
-  $('[data-results]').textContent = `${list.length} ${list.length === 1 ? 'fragancia' : 'fragancias'}`;
 }
 
-$('[data-grid]').addEventListener('click', (e) => {
-  const size = e.target.closest('[data-size]');
-  if (size) {
-    chosen[size.dataset.id] = +size.dataset.size;
-    $$(`[data-size][data-id="${size.dataset.id}"]`).forEach((b) => {
-      const on = b === size;
-      b.classList.toggle('is-active', on);
-      b.setAttribute('aria-checked', on);
-    });
-    return;
-  }
-  const add = e.target.closest('[data-add]');
-  if (add) {
-    const p = PRODUCTS.find((x) => x.id === add.dataset.add);
-    const ml = chosen[p.id] ?? p.precios[0].ml;
-    addToBag(p.id, ml);
-    toast(`${p.nombre} ${ml} ml agregado a tu pedido`);
-    add.classList.add('is-done');
-    add.innerHTML = '<svg><use href="#i-check"/></svg> Agregado';
-    setTimeout(() => { add.classList.remove('is-done'); add.innerHTML = '<svg><use href="#i-bag"/></svg> Agregar'; }, 1400);
-  }
-});
-
-$$('.tab').forEach((t) => t.addEventListener('click', () => {
-  state.cat = t.dataset.cat;
-  $$('.tab').forEach((x) => { x.classList.toggle('is-active', x === t); x.setAttribute('aria-selected', x === t); });
+function setCat(cat) {
+  state.cat = cat;
+  $$('.seg-btn').forEach((x) => { const on = x.dataset.cat === cat; x.classList.toggle('is-active', on); x.setAttribute('aria-selected', on); });
   renderGrid();
+}
+$$('.seg-btn').forEach((b) => b.addEventListener('click', () => setCat(b.dataset.cat)));
+$$('[data-go-cat]').forEach((b) => b.addEventListener('click', () => {
+  setCat(b.dataset.goCat);
+  $('#catalogo').scrollIntoView({ behavior: 'smooth' });
 }));
 let searchTimer;
 $('[data-search]').addEventListener('input', (e) => {
   clearTimeout(searchTimer);
   searchTimer = setTimeout(() => { state.q = e.target.value; renderGrid(); }, 120);
 });
-$('[data-brand]').addEventListener('change', (e) => { state.brand = e.target.value; renderGrid(); });
 $('[data-sort]').addEventListener('change', (e) => { state.sort = e.target.value; renderGrid(); });
+
+// ===== Selector de ml =====
+const sheet = $('[data-sheet]');
+const pick = { p: null, ml: 0, qty: 1 };
+
+function renderPick() {
+  const size = pick.p.precios.find((s) => s.ml === pick.ml);
+  $$('.ml', sheet).forEach((b) => { const on = +b.dataset.ml === pick.ml; b.classList.toggle('is-active', on); b.setAttribute('aria-checked', on); });
+  $('[data-sheet-qty-n]').textContent = pick.qty;
+  $('[data-sheet-price]').textContent = clp(size.precio * pick.qty);
+  $('[data-sheet-hint]').innerHTML = SPRAYS[pick.ml] ? `<svg><use href="#i-drop"/></svg> ${pick.ml} ml rinde aprox. ${SPRAYS[pick.ml]} atomizaciones` : '';
+}
+
+function openPick(id) {
+  const p = PRODUCTS.find((x) => x.id === id);
+  if (!p) return;
+  Object.assign(pick, { p, ml: p.precios[0].ml, qty: 1 });
+  const img = $('[data-sheet-img]');
+  img.src = `img/productos/${p.id}.webp`;
+  img.alt = `${p.nombre} de ${p.marca}`;
+  $('[data-sheet-cat]').textContent = CATS[p.cat];
+  $('[data-sheet-brand]').textContent = p.marca;
+  $('[data-sheet-name]').textContent = p.nombre;
+  $('[data-sheet-desc]').textContent = p.desc;
+  $('[data-sheet-sizes]').innerHTML = p.precios.map((s) => `<button type="button" class="ml" role="radio" aria-checked="false" data-ml="${s.ml}"><b>${s.ml} ml</b><span>${clp(s.precio)}</span></button>`).join('');
+  renderPick();
+  sheet.showModal();
+}
+
+$('[data-grid]').addEventListener('click', (e) => {
+  const c = e.target.closest('[data-open]');
+  if (c) openPick(c.dataset.open);
+});
+$('[data-sheet-sizes]').addEventListener('click', (e) => {
+  const b = e.target.closest('.ml');
+  if (!b) return;
+  pick.ml = +b.dataset.ml;
+  renderPick();
+});
+$$('[data-sheet-qty]').forEach((b) => b.addEventListener('click', () => {
+  pick.qty = Math.max(1, pick.qty + +b.dataset.sheetQty);
+  renderPick();
+}));
+$('[data-sheet-add]').addEventListener('click', () => {
+  addToCart(pick.p.id, pick.ml, pick.qty);
+  sheet.close();
+  toast(`${pick.p.nombre} ${pick.ml} ml agregado al carrito`);
+});
+sheet.addEventListener('click', (e) => { if (e.target === sheet) sheet.close(); }); // clic fuera del cuadro
 
 // ===== Envío por WhatsApp =====
 function send(text) {
@@ -167,17 +193,10 @@ function send(text) {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
     return;
   }
-  // Sin número configurado: se copia el pedido y se abre el chat de Instagram
   const go = () => window.open(INSTAGRAM_URL, '_blank', 'noopener');
   if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => { toast('Pedido copiado: pégalo en el chat'); go(); }, go);
   else go();
 }
-
-$$('[data-wa-direct]').forEach((a) => a.addEventListener('click', (e) => {
-  if (!WHATSAPP_NUMBER) return; // sin número, el enlace baja al formulario
-  e.preventDefault();
-  send('Hola Nantes Perfumería! Quiero consultar por sus decants.');
-}));
 
 const form = $('[data-form]');
 form.addEventListener('submit', (e) => {
@@ -190,12 +209,12 @@ form.addEventListener('submit', (e) => {
   form.ciudad.classList.toggle('is-invalid', !ciudad);
   const ls = lines();
   if (!nombre || !ciudad) { err.textContent = 'Completa tu nombre y tu comuna o ciudad.'; err.hidden = false; return; }
-  if (!ls.length && !mensaje) { err.textContent = 'Agrega al menos un perfume desde el catálogo o escríbenos qué buscas en comentarios.'; err.hidden = false; return; }
+  if (!ls.length && !mensaje) { err.textContent = 'Agrega al menos un perfume al carrito o cuéntanos en comentarios qué buscas.'; err.hidden = false; return; }
   err.hidden = true;
 
   const out = ['Hola Nantes Perfumería! Quiero hacer este pedido:', ''];
   ls.forEach((l) => out.push(`• ${l.p.nombre} (${l.p.marca}) · ${l.ml} ml x${l.qty} · ${clp(l.precio * l.qty)}`));
-  if (ls.length) out.push('', `Total estimado: ${clp(bagTotal())}`);
+  if (ls.length) out.push('', `Total estimado: ${clp(cartTotal())}`);
   out.push('', `Nombre: ${nombre}`, `Comuna / ciudad: ${ciudad}`, `Entrega: ${form.entrega.value}`);
   if (mensaje) out.push(`Comentarios: ${mensaje}`);
   send(out.join('\n'));
@@ -207,14 +226,10 @@ fetch('data/productos.json')
   .then((r) => r.json())
   .then((data) => {
     PRODUCTS = data;
-    $$('[data-n]').forEach((el) => {
-      const c = el.dataset.n;
-      el.textContent = c === 'todos' ? data.length : data.filter((p) => p.cat === c).length;
-    });
-    $('[data-count-total]').textContent = data.length;
-    const brands = [...new Set(data.map((p) => p.marca))].sort((a, b) => a.localeCompare(b, 'es'));
-    $('[data-brand]').insertAdjacentHTML('beforeend', brands.map((b) => `<option>${esc(b)}</option>`).join(''));
+    $('[data-total]').textContent = data.length;
+    $('[data-min]').textContent = clp(Math.min(...data.map(minPrice)));
+    $$('[data-coll-n]').forEach((el) => { el.textContent = `${data.filter((p) => p.cat === el.dataset.collN).length} fragancias`; });
     renderGrid();
-    renderBag();
+    renderCart();
   })
-  .catch(() => { $('[data-results]').textContent = 'No pudimos cargar el catálogo. Recarga la página.'; });
+  .catch(() => { $('[data-grid]').innerHTML = '<p class="empty">No pudimos cargar el catálogo. Recarga la página.</p>'; });
