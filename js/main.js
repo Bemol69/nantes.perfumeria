@@ -92,7 +92,7 @@ function toast(msg) {
 const minPrice = (p) => Math.min(...p.precios.map((s) => s.precio));
 
 const card = (p, i) => `<article class="card" data-open="${p.id}" style="animation-delay:${Math.min(i, 12) * 40}ms">
-  <div class="card-media"><img src="img/productos/${p.id}.webp" alt="${esc(p.nombre)} de ${esc(p.marca)}" width="640" height="503" loading="lazy" decoding="async"><span class="tag">${CATS[p.cat]}</span></div>
+  <div class="card-media"><img src="img/productos/${p.id}.webp" alt="${esc(p.nombre)} de ${esc(p.marca)}" width="900" height="727" loading="lazy" decoding="async"><span class="tag">${CATS[p.cat]}</span></div>
   <div class="card-body">
     <span class="card-brand">${esc(p.marca)}</span>
     <h3>${esc(p.nombre)}</h3>
@@ -157,6 +157,7 @@ function openPick(id) {
   const img = $('[data-sheet-img]');
   img.src = `img/productos/${p.id}.webp`;
   img.alt = `${p.nombre} de ${p.marca}`;
+  img.parentElement.style.setProperty('--img', `url("${new URL(`img/productos/${p.id}.webp`, location.href).href}")`);
   $('[data-sheet-cat]').textContent = CATS[p.cat];
   $('[data-sheet-brand]').textContent = p.marca;
   $('[data-sheet-name]').textContent = p.nombre;
