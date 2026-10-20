@@ -221,6 +221,20 @@ form.addEventListener('submit', (e) => {
   send(out.join('\n'));
 });
 
+// ===== Portada: menú y perfumes que siguen el mouse =====
+const nav = $('[data-nav]');
+const hero = $('[data-hero]');
+const onScroll = () => nav.classList.toggle('is-dark', scrollY < hero.offsetHeight - 80);
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+if (matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  hero.addEventListener('pointermove', (e) => {
+    const r = hero.getBoundingClientRect();
+    hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width - 0.5).toFixed(3));
+    hero.style.setProperty('--my', ((e.clientY - r.top) / r.height - 0.5).toFixed(3));
+  });
+}
+
 // ===== Inicio =====
 $('[data-year]').textContent = new Date().getFullYear();
 fetch('data/productos.json')

@@ -15,8 +15,8 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=3">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css?v=5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -48,7 +48,7 @@
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
 </svg>
 
-<header class="nav">
+<header class="nav is-dark" data-nav>
   <div class="container nav-inner">
     <a class="brand" href="#inicio" aria-label="Nantes Perfumería, inicio">
       <img src="img/logo.webp" alt="" width="40" height="40">
@@ -69,30 +69,37 @@
 
 <main id="inicio">
   <!-- HERO -->
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <p class="pill"><svg><use href="#i-spark"/></svg> Decants 100% originales · Envíos a todo Chile</p>
-        <h1>Tu perfume favorito, <em>en la medida justa.</em></h1>
-        <p class="lead">Prueba fragancias árabes, de diseñador y de nicho en formatos de 3 a 30 ml, extraídas directo de su frasco original. Antes de comprar el frasco completo, descubre cuál es el tuyo.</p>
-        <div class="hero-cta">
-          <a class="btn btn-dark" href="#catalogo">Explorar catálogo <svg><use href="#i-arrow"/></svg></a>
-          <a class="btn btn-ghost" href="#decants">¿Qué es un decant?</a>
-        </div>
-        <ul class="hero-stats">
-          <li><b data-total>43</b><span>fragancias</span></li>
-          <li><b data-min>$2.490</b><span>desde</span></li>
-          <li><b>3–30 ml</b><span>formatos</span></li>
-        </ul>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <figure class="hv hv-main"><img src="img/productos/creed-aventus.webp" alt="" width="900" height="727"></figure>
-        <figure class="hv hv-a"><img src="img/productos/lattafa-yara.webp" alt="" width="900" height="727"></figure>
-        <figure class="hv hv-b"><img src="img/productos/dior-sauvage-elixir.webp" alt="" width="900" height="727"></figure>
-        <div class="price-chip chip-1"><small>Yara · Lattafa</small><b>3 ml <span>$2.490</span></b></div>
-        <div class="price-chip chip-2"><small>Aventus · Creed</small><b>5 ml <span>$21.990</span></b></div>
-      </div>
+  <section class="hero" data-hero>
+    <div class="hero-bg" aria-hidden="true">
+      <span class="orb orb-1"></span><span class="orb orb-2"></span><span class="orb orb-3"></span>
+      <span class="hero-grid-lines"></span><span class="hero-noise"></span>
     </div>
+    <div class="fl-col fl-left" aria-hidden="true">
+      <figure class="fl fl-1"><img src="img/productos/lattafa-yara.webp" alt="" width="900" height="727"><figcaption><span>Yara · Lattafa</span><b>desde $2.490</b></figcaption></figure>
+      <figure class="fl fl-2"><img src="img/productos/creed-aventus.webp" alt="" width="900" height="727"><figcaption><span>Aventus · Creed</span><b>desde $13.990</b></figcaption></figure>
+      <figure class="fl fl-3"><img src="img/productos/carolina-herrera-la-bomba-edp.webp" alt="" width="900" height="727"><figcaption><span>La Bomba · Carolina Herrera</span><b>desde $8.990</b></figcaption></figure>
+    </div>
+    <div class="fl-col fl-right" aria-hidden="true">
+      <figure class="fl fl-4"><img src="img/productos/dior-sauvage-elixir.webp" alt="" width="900" height="727"><figcaption><span>Sauvage Elixir · Dior</span><b>desde $14.990</b></figcaption></figure>
+      <figure class="fl fl-5"><img src="img/productos/xerjoff-naxos.webp" alt="" width="900" height="727"><figcaption><span>Naxos · Xerjoff</span><b>desde $10.990</b></figcaption></figure>
+      <figure class="fl fl-6"><img src="img/productos/valentino-donna-born-in-roma-edp.webp" alt="" width="900" height="727"><figcaption><span>Born in Roma · Valentino</span><b>desde $7.990</b></figcaption></figure>
+    </div>
+    <div class="container hero-center">
+      <p class="pill"><svg><use href="#i-spark"/></svg> Decants 100% originales · Envíos a todo Chile</p>
+      <h1>Tu perfume favorito,<br><em>en la medida justa.</em></h1>
+      <p class="lead">Fragancias árabes, de diseñador y de nicho en formatos de 3 a 30 ml, extraídas directo de su frasco original. Prueba antes de comprar.</p>
+      <div class="hero-cta">
+        <a class="btn btn-glow" href="#catalogo">Explorar catálogo <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-glass" href="#decants">¿Qué es un decant?</a>
+      </div>
+      <ul class="hero-stats">
+        <li><b data-total>43</b><span>fragancias</span></li>
+        <li><b data-min>$2.490</b><span>desde</span></li>
+        <li><b>3–30 ml</b><span>formatos</span></li>
+      </ul>
+    </div>
+    <div class="hero-strip" aria-hidden="true"><div class="hero-strip-track"><img src="img/productos/lattafa-yara.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/dior-sauvage-elixir.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/creed-aventus.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/xerjoff-naxos.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/carolina-herrera-la-bomba-edp.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/valentino-donna-born-in-roma-edp.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/rasasi-hawas-ice.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/jean-paul-gaultier-le-beau-le-parfum.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/lattafa-yara.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/dior-sauvage-elixir.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/creed-aventus.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/xerjoff-naxos.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/carolina-herrera-la-bomba-edp.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/valentino-donna-born-in-roma-edp.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/rasasi-hawas-ice.webp" alt="" width="900" height="727" loading="lazy"><img src="img/productos/jean-paul-gaultier-le-beau-le-parfum.webp" alt="" width="900" height="727" loading="lazy"></div></div>
+    <a class="scroll-cue" href="#colecciones" aria-label="Bajar"><span></span></a>
   </section>
 
   <div class="marquee" aria-hidden="true">
@@ -288,6 +295,6 @@
 <button class="fab" type="button" data-open-cart hidden><svg><use href="#i-bag"/></svg> <span data-fab-total>$0</span><b data-cart-count>0</b></button>
 <div class="toast" data-toast role="status" aria-live="polite"></div>
 
-<script src="js/main.js?v=3" defer></script>
+<script src="js/main.js?v=4" defer></script>
 </body>
 </html>
